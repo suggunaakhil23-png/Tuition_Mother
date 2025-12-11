@@ -21,6 +21,10 @@ main()
     .then(() => console.log("MongoDB Atlas Connected"))
     .catch(err => console.log(err));
 
+    app.get("/", (req, res) => {
+          res.redirect("/main");
+    });
+
 app.get("/main", (req, res) => {
     res.render("dashboard.ejs");
 });
