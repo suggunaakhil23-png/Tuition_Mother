@@ -1,0 +1,59 @@
+:root{
+  --bg:#faf9f6;
+  --card:#ffffff;
+  --yellow:#ffd900;
+  --yellow-dark:#ff9f00;
+  --shadow:0 10px 25px rgba(0,0,0,0.08);
+  --radius:18px;
+}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,Arial}
+body{background:var(--bg)}
+
+.header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 50px;
+  background:var(--card);
+  box-shadow:var(--shadow);
+}
+
+.brand{display:flex;align-items:center;gap:12px;font-weight:700}
+.logo{width:42px;height:42px;border-radius:50%;border:6px solid var(--yellow);display:flex;align-items:center;justify-content:center}
+
+.nav{display:flex;gap:22px}
+.nav a{text-decoration:none;color:#333;font-weight:600}
+.nav .active{color:var(--yellow-dark)}
+
+.container{max-width:1100px;margin:auto;padding:40px}
+
+.title{font-size:40px;font-weight:800;margin-bottom:30px}
+
+.form{
+  background:var(--card);
+  padding:30px;
+  border-radius:var(--radius);
+  max-width:400px;
+  box-shadow:var(--shadow);
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.input{
+  padding:14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  font-size:16px;
+}
+
+.submit{
+  padding:14px;
+  background:linear-gradient(90deg,var(--yellow),var(--yellow-dark));
+  border:none;
+  border-radius:12px;
+  font-size:16px;
+  font-weight:700;
+  color:#111;
+  cursor:pointer;
+}

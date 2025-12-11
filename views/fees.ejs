@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fees</title>
+  <link rel="stylesheet" href="/fees.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">🎓</div>
+      <div class="name">TuitionTrack</div>
+    </div>
+    <nav class="nav">
+      <a href="/main">Dashboard</a>
+      <a href="/students">Students</a>
+      <a href="/fees" class="active">Fees</a>
+      <a href="/enroll">Enroll</a>
+      <a href="/update">Update Payment</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="title">Monthly Fee Records</h1>
+
+    <div class="filter-box">
+      <label>Filter by Month</label>
+      <select id="monthFilter" class="input">
+        <option value="all">All</option>
+        <option value="Jan">January</option>
+        <option value="Feb">February</option>
+        <option value="Mar">March</option>
+        <option value="Apr">April</option>
+        <option value="May">May</option>
+        <option value="Jun">June</option>
+        <option value="Jul">July</option>
+        <option value="Aug">August</option>
+        <option value="Sep">September</option>
+        <option value="Oct">October</option>
+        <option value="Nov">November</option>
+        <option value="Dec">December</option>
+      </select>
+    </div>
+
+    <table class="table" id="feesTable">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Fee</th>
+          <th>Status</th>
+          <th>Paid On</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% for (let student of data) { 
+            let d = student.month ? new Date(student.month) : null;
+            let day = d ? d.getDate() : "--";
+            let monthFull = d ? d.toLocaleString("en-US", { month: "long" }) : "No Date";
+            let monthShort = d ? d.toLocaleString("en-US", { month: "short" }) : "None";
+            let year = d ? d.getFullYear() : "";
+            let formatted = `${day} ${monthFull} ${year}`;
+        %>
+
+        <tr data-month="<%= monthShort %>">
+          <td><%= student.name %></td>
+          <td>₹<%= student.fee %></td>
+          <td><%= student.status %></td>
+          <td><%= formatted %></td>
+          <td><a href="/update" class="update-btn">Update</a></td>
+        </tr>
+
+        <% } %>
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    const filter = document.getElementById('monthFilter');
+    const rows = document.querySelectorAll('#feesTable tbody tr');
+
+    filter.addEventListener('change', () => {
+      const month = filter.value;
+
+      rows.forEach(row => {
+        const rowMonth = row.getAttribute('data-month');
+        row.style.display = (month === 'all' || rowMonth === month) ? '' : 'none';
+      });
+    });
+  </script>
+
+</body>
+</html>

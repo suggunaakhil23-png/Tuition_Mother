@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Students</title>
+  <link rel="stylesheet" href="/students.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">🎓</div>
+      <div class="name">TuitionTrack</div>
+    </div>
+    <nav class="nav">
+      <a href="/main">Dashboard</a>
+      <a href="/students">Students</a>
+      <a href="/fees" class="active">Fees</a>
+      <a href="/enroll">Enroll</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="title">Students</h1>
+    <% for (let student of data) { %>
+  <div class="students-list">
+      <div class="student">
+        <div class="info">
+          <div class="name"><%= student.name %></div>
+          <div class="class">Class <%= student.clas %></div>
+        </div>
+      </div>
+    </div>
+<% } %>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Update Payment Status</title>
+  <link rel="stylesheet" href="/updatefee.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">🎓</div>
+      <div class="name">TuitionTrack</div>
+    </div>
+    <nav class="nav">
+      <a href="/main">Dashboard</a>
+      <a href="/students">Students</a>
+      <a href="/fees" class="active">Fees</a>
+      <a href="/enroll">Enroll</a>
+      <a href="/update">Update Payment</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="title">Update Payment Status</h1>
+
+    <form class="form" method = "post">
+
+      <select class="input" name = "name">
+        <% for (let student of data) { %>
+          <option><%= student.name %></option>
+<% } %>
+        
+      </select>
+
+      <select class="input" name = "status">
+        <option>Change Status</option>
+        <option>Paid</option>
+        <option>Not Paid</option>
+      </select>
+
+      <input type="date" class="input" placeholder="Select Payment Date" name = "date">
+
+      <button class="submit">Update Status</button>
+    </form>
+  </main>
+
+</body>
+</html>

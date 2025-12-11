@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Enroll Student</title>
+  <link rel="stylesheet" href="/enroll.css">
+</head>
+<body>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo">🎓</div>
+      <div class="name">TuitionTrack</div>
+    </div>
+    <nav class="nav">
+      <a href="/main">Dashboard</a>
+      <a href="/students">Students</a>
+      <a href="/fees">Fees</a>
+      <a href="/enroll" class="active">Enroll</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1 class="title">Enroll New Student</h1>
+
+    <form class="form" method="post">
+      <input type="text" placeholder="Full Name" class="input" name = "name">
+      <input type="text" placeholder="Class / Grade" class="input" name = "clas">
+      <input type="number" placeholder="Monthly Fee" class="input" name = "fee">
+      <button class="submit">Enroll Student</button>
+    </form>
+  </main>
+
+</body>
+</html>
